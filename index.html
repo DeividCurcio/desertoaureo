@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Deserto Áureo • Perfumes Árabes de Dubai</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --ouro: #E8B923;
+      --ouro-escuro: #D4A017;
+      --areia: #F5E8C7;
+      --noite: #0A1F3D;
+      --preto: #111111;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Playfair Display', serif;
+      background: var(--noite);
+      color: var(--areia);
+      line-height: 1.6;
+    }
+    
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1.5rem 5%;
+      background: rgba(10, 31, 61, 0.85);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: 2.2rem;
+      color: var(--ouro);
+      text-decoration: none;
+    }
+    
+    nav a {
+      color: var(--areia);
+      text-decoration: none;
+      margin-left: 2rem;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
+      transition: color 0.3s;
+    }
+    
+    nav a:hover {
+      color: var(--ouro);
+    }
+    
+    .hero {
+      height: 100vh;
+      background: linear-gradient(rgba(10, 31, 61, 0.65), rgba(10, 31, 61, 0.85)),
+                  url('https://go-pretty.fr/wp-content/uploads/2023/04/ZtMUKyLes-meilleurs-parfums-de-dubaib6f80f593fb571cfb6523a8d06b2ef19.jpg') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 5%;
+    }
+    
+    .hero h1 {
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: clamp(4rem, 12vw, 9rem);
+      color: var(--ouro);
+      text-shadow: 0 0 30px rgba(232, 185, 35, 0.6);
+      margin-bottom: 1rem;
+    }
+    
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 600px;
+      margin-bottom: 2.5rem;
+      color: var(--areia);
+    }
+    
+    .btn {
+      display: inline-block;
+      background: var(--ouro);
+      color: var(--noite);
+      padding: 1rem 3rem;
+      font-size: 1.3rem;
+      text-decoration: none;
+      border-radius: 50px;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      transition: all 0.4s;
+      box-shadow: 0 10px 30px rgba(232, 185, 35, 0.4);
+    }
+    
+    .btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(232, 185, 35, 0.6);
+      background: #ffca38;
+    }
+    
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 8rem 5%;
+    }
+    
+    .section-title {
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: 4rem;
+      color: var(--ouro);
+      text-align: center;
+      margin-bottom: 4rem;
+      text-shadow: 0 0 20px rgba(232, 185, 35, 0.3);
+    }
+    
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 3rem;
+    }
+    
+    .product-card {
+      background: rgba(245, 232, 199, 0.08);
+      border: 1px solid var(--ouro-escuro);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: all 0.4s;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 30px 60px rgba(232, 185, 35, 0.25);
+    }
+    
+    .product-img {
+      width: 100%;
+      height: 320px;
+      object-fit: contain;
+      margin-bottom: 1.5rem;
+    }
+    
+    .product-card h3 {
+      font-size: 2rem;
+      color: var(--ouro);
+      margin-bottom: 0.8rem;
+    }
+    
+    footer {
+      background: var(--preto);
+      text-align: center;
+      padding: 3rem 0;
+      font-family: 'Roboto', sans-serif;
+      font-size: 0.95rem;
+      color: #888;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.85);
+      opacity: 0;
+      transition: opacity 0.4s ease-in-out;
+    }
+
+    .modal.active {
+      display: flex;
+      opacity: 1;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      background: linear-gradient(135deg, rgba(10, 31, 61, 0.95), rgba(20, 50, 90, 0.95));
+      border: 2px solid var(--ouro);
+      border-radius: 20px;
+      padding: 3rem;
+      max-width: 650px;
+      width: 90%;
+      position: relative;
+      animation: slideIn 0.4s ease-out;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .modal-close {
+      position: absolute;
+      right: 1.5rem;
+      top: 1.5rem;
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: var(--ouro);
+      cursor: pointer;
+      background: none;
+      border: none;
+      transition: color 0.3s;
+    }
+
+    .modal-close:hover {
+      color: #ffca38;
+    }
+
+    .modal-title {
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: 2.5rem;
+      color: var(--ouro);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .modal-description {
+      color: var(--areia);
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+
+    .modal-description p {
+      margin-bottom: 1rem;
+    }
+
+    .modal-description strong {
+      color: var(--ouro);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="#" class="logo">Deserto Áureo</a>
+    <nav>
+      <a href="#colecao">Coleção</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Deserto Áureo</h1>
+    <p>O luxo do deserto elevado à Torre de Dubai</p>
+    <a href="#colecao" class="btn">Descubra as Essências</a>
+  </section>
+
+  <div class="container">
+    <h2 class="section-title">Coleção Burj</h2>
+    
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.72821.avif" alt="Frasco Oud Dourado" class="product-img">
+        <h3>Asad Lattafa Perfumes Masculino</h3>
+        <button onclick="abrirModal()" class="btn" style="border: none; cursor: pointer;">Principais Acordes</button>
+      </div>
+      
+      <div class="product-card">
+        <img src="https://via.placeholder.com/400x320/111111/E8B923?text=Frasco+Âmbar+Deserto" alt="Frasco Âmbar" class="product-img">
+        <h3>Âmbar da Torre</h3>
+        <p>Notas principais: âmbar quente, sândalo e musk nobre</p>
+        <a href="#" class="btn">Comprar</a>
+      </div>
+      
+      <div class="product-card">
+        <img src="https://via.placeholder.com/400x320/111111/E8B923?text=Perfume+Rosa+Deserto" alt="Frasco Rosa Deserto" class="product-img">
+        <h3>Rosa do Deserto</h3>
+        <p>Notas principais: rosa damascena, oud suave e baunilha dourada</p>
+        <a href="#" class="btn">Comprar</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="modalAcordes" class="modal" onclick="fecharModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="fecharModal()">&times;</button>
+      <h2 class="modal-title">Asad - Lattafa Perfumes</h2>
+      <div class="modal-description">
+        <p><strong>Tipo:</strong> Perfume Oriental Masculino</p>
+        <p><strong>Lançamento:</strong> 2021</p>
+        
+        <p><strong>Notas de Topo:</strong><br>
+        Pimenta Preta, Tabaco e Abacaxi</p>
+        
+        <p><strong>Notas de Coração:</strong><br>
+        Patchouli, Café e Íris</p>
+        
+        <p><strong>Notas de Fundo:</strong><br>
+        Baunilha, Âmbar, Madeira Seca, Benjoim e Ládano</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Deserto Áureo • Perfumes Árabes Premium • Luxo de Dubai</p>
+  </footer>
+
+  <script>
+    function abrirModal() {
+      const modal = document.getElementById('modalAcordes');
+      if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function fecharModal(event) {
+      const modal = document.getElementById('modalAcordes');
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    }
+
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        const modal = document.getElementById('modalAcordes');
+        if (modal && modal.classList.contains('active')) {
+          fecharModal();
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
