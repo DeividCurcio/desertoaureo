@@ -334,6 +334,12 @@
         <h3>Asad Bourbon Lattafa Perfumes Masculino 03 </h3>
         <button onclick="abrirModalBourbon()" class="btn" style="border: none; cursor: pointer;">Principais Acordes</button>
       </div>
+
+      <div class="product-card">
+        <img src="https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.76880.avif" alt="Frasco Asad Gold" class="product-img">
+        <h3>Yara Lattafa Perfumes Feminino 04</h3>
+        <button onclick="abrirModalGold()" class="btn" style="border: none; cursor: pointer;">Principais Acordes</button>
+      </div>
     </div>
   </div>
 
@@ -397,6 +403,26 @@
     </div>
   </div>
 
+  <div id="modalAcordesGold" class="modal" onclick="fecharModalGold(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="fecharModalGold()">&times;</button>
+      <h2 class="modal-title">Yara - Lattafa Perfumes</h2>
+      <div class="modal-description">
+        <p><strong>Tipo:</strong> Perfume Oriental Baunilha Feminino</p>
+        <p><strong>Lançamento:</strong> 2020</p>
+        
+        <p><strong>Notas de Topo:</strong><br>
+        Orquídea, Heliotrópio e Tangerina</p>
+        
+        <p><strong>Notas de Coração:</strong><br>
+        Acorde Gourmand e Frutas Tropicais</p>
+        
+        <p><strong>Notas de Fundo:</strong><br>
+        Baunilha, Almíscar e Sândalo</p>
+      </div>
+    </div>
+  </div>
+
   <a href="https://wa.me/5522999604947?text=Ol%C3%A1%2C%20vim%20do%20seu%20site!" 
      target="_blank" 
      rel="noopener noreferrer"
@@ -440,6 +466,10 @@
         if (modalBourbon && modalBourbon.classList.contains('active')) {
           fecharModalBourbon();
         }
+        const modalGold = document.getElementById('modalAcordesGold');
+        if (modalGold && modalGold.classList.contains('active')) {
+          fecharModalGold();
+        }
       }
     });
 
@@ -469,6 +499,22 @@
 
     function fecharModalBourbon(event) {
       const modal = document.getElementById('modalAcordesBourbon');
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    }
+
+    function abrirModalGold() {
+      const modal = document.getElementById('modalAcordesGold');
+      if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function fecharModalGold(event) {
+      const modal = document.getElementById('modalAcordesGold');
       if (modal) {
         modal.classList.remove('active');
         document.body.style.overflow = 'auto';
