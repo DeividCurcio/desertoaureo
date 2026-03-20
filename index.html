@@ -169,6 +169,48 @@
       color: #888;
     }
 
+    .whatsapp-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: linear-gradient(135deg, rgba(37, 211, 102, 0.95), rgba(25, 150, 80, 0.95));
+      padding: 1rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      color: white;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+      transition: all 0.3s ease;
+      animation: flutuacao 3s ease-in-out infinite;
+    }
+
+    @keyframes flutuacao {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 35px rgba(37, 211, 102, 0.5);
+      background: linear-gradient(135deg, rgba(37, 211, 102, 1), rgba(25, 150, 80, 1));
+    }
+
+    .whatsapp-float img {
+      width: 40px;
+      height: 40px;
+      filter: brightness(1.1);
+    }
+
     .modal {
       display: none;
       position: fixed;
@@ -354,6 +396,14 @@
       </div>
     </div>
   </div>
+
+  <a href="https://wa.me/5522999604947?text=Ol%C3%A1%2C%20vim%20do%20seu%20site!" 
+     target="_blank" 
+     rel="noopener noreferrer"
+     class="whatsapp-float">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    <span>Fale comigo!</span>
+  </a>
 
   <footer>
     <p>&copy; 2026 Deserto Áureo • Perfumes Árabes Premium • Luxo de Dubai</p>
