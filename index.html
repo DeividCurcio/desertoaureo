@@ -277,22 +277,20 @@
     <div class="product-grid">
       <div class="product-card">
         <img src="https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.72821.avif" alt="Frasco Oud Dourado" class="product-img">
-        <h3>Asad Lattafa Perfumes Masculino</h3>
+        <h3>Asad Lattafa Perfumes Masculino 01 </h3>
         <button onclick="abrirModal()" class="btn" style="border: none; cursor: pointer;">Principais Acordes</button>
       </div>
       
       <div class="product-card">
-        <img src="https://via.placeholder.com/400x320/111111/E8B923?text=Frasco+Âmbar+Deserto" alt="Frasco Âmbar" class="product-img">
-        <h3>Âmbar da Torre</h3>
-        <p>Notas principais: âmbar quente, sândalo e musk nobre</p>
-        <a href="#" class="btn">Comprar</a>
+        <img src="https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.117616.avif" alt="Frasco Âmbar" class="product-img">
+        <h3>Asad Elixir Lattafa Perfumes Masculino 02 </h3>
+        <button onclick="abrirModalElixir()" class="btn" style="border: none; cursor: pointer;">Principais Acordes</button>
       </div>
       
       <div class="product-card">
-        <img src="https://via.placeholder.com/400x320/111111/E8B923?text=Perfume+Rosa+Deserto" alt="Frasco Rosa Deserto" class="product-img">
-        <h3>Rosa do Deserto</h3>
-        <p>Notas principais: rosa damascena, oud suave e baunilha dourada</p>
-        <a href="#" class="btn">Comprar</a>
+        <img src="https://fimgs.net/mdimg/perfume-thumbs/dark-375x500.101124.avif" alt="Frasco Rosa Deserto" class="product-img">
+        <h3>Asad Bourbon Lattafa Perfumes Masculino 03 </h3>
+        <button onclick="abrirModalBourbon()" class="btn" style="border: none; cursor: pointer;">Principais Acordes</button>
       </div>
     </div>
   </div>
@@ -313,6 +311,46 @@
         
         <p><strong>Notas de Fundo:</strong><br>
         Baunilha, Âmbar, Madeira Seca, Benjoim e Ládano</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="modalAcordesElixir" class="modal" onclick="fecharModalElixir(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="fecharModalElixir()">&times;</button>
+      <h2 class="modal-title">Asad Elixir - Lattafa Perfumes</h2>
+      <div class="modal-description">
+        <p><strong>Tipo:</strong> Perfume Oriental Masculino</p>
+        <p><strong>Lançamento:</strong> 2025 (Nova Fragrância)</p>
+        
+        <p><strong>Notas de Topo:</strong><br>
+        Pimenta Rosa, Açafrão e Toranja</p>
+        
+        <p><strong>Notas de Coração:</strong><br>
+        Tabaco, Baunilha e Cedro</p>
+        
+        <p><strong>Notas de Fundo:</strong><br>
+        Olíbano, Âmbar Claro, Patchouli e Cashmeran</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="modalAcordesBourbon" class="modal" onclick="fecharModalBourbon(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="fecharModalBourbon()">&times;</button>
+      <h2 class="modal-title">Asad Bourbon - Lattafa Perfumes</h2>
+      <div class="modal-description">
+        <p><strong>Tipo:</strong> Perfume Oriental Especiado Masculino</p>
+        <p><strong>Lançamento:</strong> 2025 (Nova Fragrância)</p>
+        
+        <p><strong>Notas de Topo:</strong><br>
+        Lavanda, Ameixa Mirabelle e Pimenta Rosa</p>
+        
+        <p><strong>Notas de Coração:</strong><br>
+        Cacau, Noz-moscada e Davana</p>
+        
+        <p><strong>Notas de Fundo:</strong><br>
+        Baunilha de Bourbon, Âmbar e Vetiver</p>
       </div>
     </div>
   </div>
@@ -344,8 +382,48 @@
         if (modal && modal.classList.contains('active')) {
           fecharModal();
         }
+        const modalElixir = document.getElementById('modalAcordesElixir');
+        if (modalElixir && modalElixir.classList.contains('active')) {
+          fecharModalElixir();
+        }
+        const modalBourbon = document.getElementById('modalAcordesBourbon');
+        if (modalBourbon && modalBourbon.classList.contains('active')) {
+          fecharModalBourbon();
+        }
       }
     });
+
+    function abrirModalElixir() {
+      const modal = document.getElementById('modalAcordesElixir');
+      if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function fecharModalElixir(event) {
+      const modal = document.getElementById('modalAcordesElixir');
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    }
+
+    function abrirModalBourbon() {
+      const modal = document.getElementById('modalAcordesBourbon');
+      if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function fecharModalBourbon(event) {
+      const modal = document.getElementById('modalAcordesBourbon');
+      if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    }
   </script>
 
 </body>
